@@ -40,6 +40,11 @@ uvicorn[standard]>=0.29.0
 python-multipart>=0.0.9
 pypdf>=4.0.0
 
+# Database & Knowledge Base
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+pgvector>=0.2.5
+
 # CLI & Progress
 tqdm>=4.66.4
 rich>=13.7.1
