@@ -1,0 +1,43 @@
+EXECUTIVE EMPLOYMENT AGREEMENT
+ This Agreement is executed at Bengaluru, Karnataka, India on 15th October 2024
+PARTIES:
+1. TECHNOVA SOLUTIONS INDIA PRIVATE LIMITED, a company incorporated under the Companies Act, 2013,
+having its registered office at Electronic City, Phase 1, Bengaluru, Karnataka - 560100 (hereinafter referred to as the
+'Employer' or 'Company'); and
+2. MR. ARJUN SHARMA, an Indian citizen residing at Indiranagar, Bengaluru - 560038 (hereinafter referred to as the
+'Executive').
+SECTION 1: POSITION AND SCOPE OF EMPLOYMENT
+1.1 The Company hereby employs the Executive as Vice President of Engineering. The Executive shall report directly
+to the Chief Technology Officer and devote full business time and best efforts to the performance of duties.
+SECTION 2: REMUNERATION AND BENEFITS
+2.1 The Company shall pay the Executive an aggregate annual cost-to-company (CTC) of INR 36,00,000 (Rupees
+Thirty-Six Lakhs only), payable in monthly installments subject to statutory tax deductions at source (TDS).
+2.2 The Executive shall be entitled to performance incentives, comprehensive medical insurance, and 24 days paid
+annual leave.
+SECTION 3: TERMINATION AND NOTICE PERIOD
+3.1 Termination for Convenience: Either party may terminate this Agreement at any time by providing not less than
+thirty (30) days prior written notice to the other party.
+3.2 Payment in Lieu of Notice: The Company reserves the right, at its sole discretion, to terminate employment
+immediately upon tendering thirty (30) days basic salary in lieu of serving the notice period.
+3.3 Summary Termination: The Company may terminate employment immediately without notice or severance in
+the event of gross misconduct, fraud, criminal conviction, or material breach of company policy.
+SECTION 4: NON-COMPETE RESTRICTION & POST-TERMINATION RESTRAINTS
+4.1 Non-Compete Covenant: The Executive expressly covenants and agrees that for a period of twenty-four (24)
+months following termination of employment for any reason whatsoever, the Executive shall not directly or indirectly
+engage in, manage, operate, consult for, or establish any commercial venture competing with the Company within the
+territory of India.
+4.2 Non-Solicitation: For a period of twelve (12) months following termination, the Executive shall not solicit, recruit,
+or entice away any employee, client, or vendor of the Company.
+SECTION 5: CONFIDENTIALITY AND INTELLECTUAL PROPERTY
+5.1 All proprietary algorithms, customer lists, financial data, and code created during the term of employment shall
+constitute work-for-hire and remain the sole exclusive property of the Company.
+5.2 The Executive's confidentiality obligations shall survive termination of employment for a period of three (3) years.
+
+
+SECTION 6: DISPUTE RESOLUTION AND GOVERNING LAW
+6.1 This Agreement shall be governed by and construed in accordance with the substantive laws of the Republic of
+India.
+6.2 Any dispute arising out of or in connection with this Agreement shall be referred to arbitration by a sole arbitrator
+in Bengaluru, in accordance with the Arbitration and Conciliation Act, 1996. The language of arbitration shall be
+English.
+ IN WITNESS WHEREOF, the parties have executed this Executive Employment Agreement on the day and year first written above.

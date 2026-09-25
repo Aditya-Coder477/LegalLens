@@ -1,0 +1,1 @@
+# pipeline/core — shared infrastructure

@@ -1,0 +1,456 @@
+{
+  "total_cases": 20,
+  "passed": 16,
+  "pass_rate": 0.8,
+  "avg_latency_ms": 584.03,
+  "results": [
+    {
+      "run_id": "RUN-3E81CD",
+      "case_id": "QA-CONTRA-001",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 655.5120944976807,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:32.883234"
+    },
+    {
+      "run_id": "RUN-35DE11",
+      "case_id": "QA-CONTRA-002",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 669.2187786102295,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:33.552453"
+    },
+    {
+      "run_id": "RUN-1DEBF3",
+      "case_id": "QA-CONTRA-003",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 643.0413722991943,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:34.195494"
+    },
+    {
+      "run_id": "RUN-80E893",
+      "case_id": "QA-CONTRA-004",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 564.5530223846436,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:34.760047"
+    },
+    {
+      "run_id": "RUN-7C274D",
+      "case_id": "QA-CONTRA-005",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 594.2213535308838,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:35.354269"
+    },
+    {
+      "run_id": "RUN-A7981E",
+      "case_id": "QA-CONTRA-006",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 555.0949573516846,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:35.909364"
+    },
+    {
+      "run_id": "RUN-3D106C",
+      "case_id": "QA-CONTRA-007",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 561.1135959625244,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:36.470477"
+    },
+    {
+      "run_id": "RUN-C920C3",
+      "case_id": "QA-CONTRA-008",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 558.3362579345703,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:37.028814"
+    },
+    {
+      "run_id": "RUN-B0E76D",
+      "case_id": "QA-CONTRA-009",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 578.4342288970947,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:37.607248"
+    },
+    {
+      "run_id": "RUN-E54675",
+      "case_id": "QA-CONTRA-010",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 562.1523857116699,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:38.169400"
+    },
+    {
+      "run_id": "RUN-09ED07",
+      "case_id": "QA-CONTRA-011",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 555.9873580932617,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:38.726399"
+    },
+    {
+      "run_id": "RUN-4C9089",
+      "case_id": "QA-CONTRA-012",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 549.3664741516113,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:39.275766"
+    },
+    {
+      "run_id": "RUN-696455",
+      "case_id": "QA-CONTRA-013",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 581.5041065216064,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:39.857270"
+    },
+    {
+      "run_id": "RUN-FFD06D",
+      "case_id": "QA-CONTRA-014",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 562.5338554382324,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:40.419804"
+    },
+    {
+      "run_id": "RUN-758322",
+      "case_id": "QA-CONTRA-015",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 1.0
+      },
+      "failures": [],
+      "latency_ms": 565.7274723052979,
+      "details": {
+        "direct_answer": "Based on Term and Termination for Convenience | Section: 3, This Agreement commences on the Effective Date and continues for a period of two (2) years.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:40.985531"
+    },
+    {
+      "run_id": "RUN-C5DDCA",
+      "case_id": "QA-GRD-001",
+      "category": "qa",
+      "status": "FAIL",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 0.143
+      },
+      "failures": [
+        "Low keyword overlap with expected answer: 0.14"
+      ],
+      "latency_ms": 609.1337203979492,
+      "details": {
+        "direct_answer": "Based on Power of Central Government to make Rules | Section: 18, In particular, and without prejudice to the generality of the foregoing power, such rules may provide for\u2014.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:41.594665"
+    },
+    {
+      "run_id": "RUN-F9A189",
+      "case_id": "QA-GRD-002",
+      "category": "qa",
+      "status": "FAIL",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 0.143
+      },
+      "failures": [
+        "Low keyword overlap with expected answer: 0.14"
+      ],
+      "latency_ms": 594.6264266967773,
+      "details": {
+        "direct_answer": "Based on Power of Central Government to make Rules | Section: 18, In particular, and without prejudice to the generality of the foregoing power, such rules may provide for\u2014.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:42.189291"
+    },
+    {
+      "run_id": "RUN-C03049",
+      "case_id": "QA-GRD-003",
+      "category": "qa",
+      "status": "FAIL",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 0.143
+      },
+      "failures": [
+        "Low keyword overlap with expected answer: 0.14"
+      ],
+      "latency_ms": 579.2922973632812,
+      "details": {
+        "direct_answer": "Based on Power of Central Government to make Rules | Section: 18, In particular, and without prejudice to the generality of the foregoing power, such rules may provide for\u2014.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:42.768584"
+    },
+    {
+      "run_id": "RUN-79AC96",
+      "case_id": "QA-GRD-004",
+      "category": "qa",
+      "status": "FAIL",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 0.143
+      },
+      "failures": [
+        "Low keyword overlap with expected answer: 0.14"
+      ],
+      "latency_ms": 572.972297668457,
+      "details": {
+        "direct_answer": "Based on Power of Central Government to make Rules | Section: 18, In particular, and without prejudice to the generality of the foregoing power, such rules may provide for\u2014.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:43.342556"
+    },
+    {
+      "run_id": "RUN-59691D",
+      "case_id": "QA-GRD-005",
+      "category": "qa",
+      "status": "PASS",
+      "metrics": {
+        "confidence": 1.0,
+        "citations_count": 1,
+        "claims_count": 1,
+        "keyword_coverage": 0.25
+      },
+      "failures": [],
+      "latency_ms": 567.7926540374756,
+      "details": {
+        "direct_answer": "Based on Power of Central Government to make Rules | Section: 18, In particular, and without prejudice to the generality of the foregoing power, such rules may provide for\u2014.",
+        "evidence_refs": [
+          "E1"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:07:43.910348"
+    }
+  ]
+}

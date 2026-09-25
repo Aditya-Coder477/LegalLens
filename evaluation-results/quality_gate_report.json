@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "passed": true,
+  "evaluated_at": "2026-09-25T20:05:08.646398",
+  "dimensions": [
+    {
+      "name": "Retrieval Quality",
+      "metric_name": "recall@10, mrr, ndcg@10",
+      "actual_value": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "details": {
+        "recall@10": 1.0,
+        "mrr": 0.57,
+        "ndcg@10": 0.6535
+      }
+    },
+    {
+      "name": "Grounding & Faithfulness",
+      "metric_name": "unsupported_claim_rate",
+      "actual_value": 0.0,
+      "threshold": 0.05,
+      "passed": true,
+      "details": {
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0
+      }
+    },
+    {
+      "name": "Citation & Provenance Integrity",
+      "metric_name": "citation_validity_rate",
+      "actual_value": 1.0,
+      "threshold": 0.95,
+      "passed": true,
+      "details": {
+        "overall_citation_validity_rate": 1.0,
+        "overall_sha256_match_rate": 1.0,
+        "total_citations_evaluated": 30,
+        "total_valid_citations": 30
+      }
+    },
+    {
+      "name": "Security & Safety",
+      "metric_name": "critical_and_high_findings",
+      "actual_value": 0,
+      "threshold": 0.0,
+      "passed": true,
+      "details": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      }
+    },
+    {
+      "name": "Performance & Latency",
+      "metric_name": "e2e_p95_ms",
+      "actual_value": 3837.9,
+      "threshold": 4000.0,
+      "passed": true,
+      "details": {
+        "mean": 3827.91,
+        "median": 3828.89,
+        "p50": 3828.89,
+        "p95": 3837.87,
+        "p99": 3839.15,
+        "min": 3818.01,
+        "max": 3839.47,
+        "count": 5
+      }
+    }
+  ],
+  "blockers": [],
+  "warnings": [],
+  "recommendations": [],
+  "metadata": {
+    "total_dimensions": 5,
+    "passed_dimensions": 5
+  }
+}

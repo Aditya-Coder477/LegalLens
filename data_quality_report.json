@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-20T20:31:40.989190Z",
+  "total_documents": 2,
+  "discovered_documents": 19,
+  "attempted_downloads": 19,
+  "downloaded_documents": 2,
+  "validated_documents": 2,
+  "catalogued_documents": 2,
+  "failed_downloads": 17,
+  "skipped_sources": 0,
+  "distinct_failed_urls": 13,
+  "invalid_artifacts": 0,
+  "failures_by_source": {
+    "National Legal Services Authority (NALSA)": 8,
+    "Legislative Department, Ministry of Law and Justice": 4,
+    "Ministry of Electronics and Information Technology (MeitY)": 5
+  },
+  "failures_by_http_status": {
+    "404": 8,
+    "None": 4,
+    "403": 5
+  },
+  "ocr_documents": 0,
+  "ocr_pages": 0,
+  "duplicate_groups": 0,
+  "duplicate_pairs": 0,
+  "broken_files": 0,
+  "by_document_type": {
+    "report": 2
+  },
+  "by_source": {
+    "National Legal Services Authority (NALSA)": 2
+  },
+  "by_legal_domain": {
+    "Arbitration and Alternative Dispute Resolution": 2
+  },
+  "by_year": {},
+  "by_source_authority": {
+    "OFFICIAL_LEGAL_AID": 2
+  },
+  "by_validation_status": {
+    "valid": 2
+  },
+  "missing_metadata": {},
+  "average_document_size_bytes": 1038070,
+  "total_document_size_bytes": 2076140,
+  "raw_storage_bytes": 2076140,
+  "processed_storage_bytes": 451230,
+  "total_storage_bytes": 2527370
+}

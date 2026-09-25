@@ -1,0 +1,80 @@
+{
+  "sample_size": 5,
+  "latency_stats": {
+    "retrieval": {
+      "mean": 600.73,
+      "median": 632.25,
+      "p50": 632.25,
+      "p95": 646.83,
+      "p99": 649.21,
+      "min": 543.02,
+      "max": 649.8,
+      "count": 5
+    },
+    "lexical": {
+      "mean": 123.62,
+      "median": 118.53,
+      "p50": 118.53,
+      "p95": 152.71,
+      "p99": 158.23,
+      "min": 107.21,
+      "max": 159.6,
+      "count": 5
+    },
+    "semantic": {
+      "mean": 461.92,
+      "median": 452.67,
+      "p50": 452.67,
+      "p95": 489.07,
+      "p99": 490.85,
+      "min": 440.33,
+      "max": 491.3,
+      "count": 5
+    },
+    "reasoning": {
+      "mean": 586.44,
+      "median": 592.01,
+      "p50": 592.01,
+      "p95": 614.78,
+      "p99": 619.1,
+      "min": 550.25,
+      "max": 620.18,
+      "count": 5
+    },
+    "citation_verification": {
+      "mean": 0.0,
+      "median": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "count": 5
+    },
+    "safety_audit": {
+      "mean": 32.55,
+      "median": 32.95,
+      "p50": 32.95,
+      "p95": 34.41,
+      "p99": 34.57,
+      "min": 29.0,
+      "max": 34.61,
+      "count": 5
+    },
+    "end_to_end": {
+      "mean": 1805.26,
+      "median": 1835.7,
+      "p50": 1835.7,
+      "p95": 1921.77,
+      "p99": 1935.34,
+      "min": 1681.27,
+      "max": 1938.73,
+      "count": 5
+    }
+  },
+  "sla_checks": {
+    "retrieval_sla_met": false,
+    "citation_sla_met": true,
+    "e2e_sla_met": true
+  }
+}

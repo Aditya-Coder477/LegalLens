@@ -1,0 +1,58 @@
+# ──────────────────────────────────────────────
+# LegalLens — Data Collection Pipeline
+# Python ≥ 3.11 required
+# ──────────────────────────────────────────────
+
+# HTTP & Networking
+httpx[http2]>=0.27.0
+tenacity>=8.2.0
+urllib3>=2.2.0
+
+# HTML Parsing
+beautifulsoup4>=4.12.3
+lxml>=5.2.0
+
+# PDF Extraction (text-layer)
+pdfminer.six>=20221105
+
+# OCR (scanned PDFs)
+pytesseract>=0.3.10
+Pillow>=10.3.0
+pdf2image>=1.17.0
+
+# DOCX
+python-docx>=1.1.0
+
+# Spreadsheets
+openpyxl>=3.1.4
+xlrd>=2.0.1
+pandas>=2.2.0
+
+# Configuration & Environment
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.1
+PyYAML>=6.0.1
+
+# CLI & Progress
+tqdm>=4.66.4
+rich>=13.7.1
+click>=8.1.7
+
+# Text similarity (deduplication)
+rapidfuzz>=3.9.0
+
+# Hashing & Utilities
+python-dateutil>=2.9.0
+
+# Optional: Charts in quality report
+matplotlib>=3.9.0
+
+# ──────────────────────────────────────────────
+# Testing
+# ──────────────────────────────────────────────
+pytest>=8.2.0
+pytest-asyncio>=0.23.7
+pytest-cov>=5.0.0
+responses>=0.25.3
+respx>=0.21.1          # httpx mock library

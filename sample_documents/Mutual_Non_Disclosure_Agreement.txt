@@ -1,0 +1,36 @@
+MUTUAL NON-DISCLOSURE AND PROPRIETARY
+ INFORMATION AGREEMENT
+ Effective as of 20th November 2024 between the Disclosing and Receiving Parties
+1. PURPOSE:
+The parties wish to explore a potential strategic technology collaboration regarding cross-border payment gateway
+integrations. In connection with this purpose, each party may disclose valuable proprietary and confidential
+information.
+2. DEFINITION OF CONFIDENTIAL INFORMATION:
+'Confidential Information' includes all non-public technical, commercial, financial, customer, source code, and design
+information disclosed orally, visually, or in tangible form marked 'Confidential' or that reasonably ought to be
+understood as confidential.
+3. EXCLUSIONS FROM CONFIDENTIALITY:
+Confidential Information does not include information that: (a) is or becomes publicly known through no breach of this
+Agreement; (b) was already in the receiving party's possession prior to disclosure; (c) is independently developed
+without reference to the disclosed information; or (d) is required to be disclosed pursuant to judicial decree or
+statutory authority, provided prompt written notice is given.
+4. CONFIDENTIALITY DUTIES AND RESTRICTIONS:
+4.1 Each receiving party agrees to hold the disclosing party's confidential data in strict confidence, applying at least a
+reasonable standard of care.
+4.2 Neither party shall disclose information to any third party except to its officers, legal counsel, and engineers who
+have a need-to-know and are bound by written non-disclosure obligations no less restrictive than this Agreement.
+5. RETURN OR DESTRUCTION OF CONFIDENTIAL MATERIALS:
+5.1 Mandatory Return Timeline: Within seven (7) business days of receiving a written request from the Disclosing
+Party, the Receiving Party shall return or destroy all physical documents, electronic files, recordings, and backups
+containing Confidential Information.
+5.2 An authorized officer of the Receiving Party shall certify in writing that all materials have been destroyed or
+returned within the 7-day period.
+6. TERM AND SURVIVAL:
+This Agreement shall remain in effect for two (2) years from the Effective Date. The confidentiality and non-use
+obligations shall survive for a period of five (5) years following the termination or expiration of this Agreement.
+7. GOVERNING LAW AND VENUE:
+This Agreement shall be governed by the laws of India. Any legal dispute shall be instituted exclusively in the
+competent civil courts of New Delhi.
+
+
+EXECUTED BY AUTHORIZED SIGNATORIES OF BOTH PARTIES.

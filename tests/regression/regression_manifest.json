@@ -1,0 +1,46 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at": "2026-09-25T00:00:00Z",
+  "baseline_commit": "phase-8-gold-standard",
+  "seed": 20260925,
+  "baselines": {
+    "retrieval": {
+      "recall_at_10": 0.82,
+      "mrr": 0.65,
+      "ndcg_at_10": 0.72
+    },
+    "grounding": {
+      "claim_support_rate": 0.90,
+      "unsupported_claim_rate": 0.03,
+      "contradiction_rate": 0.00
+    },
+    "citations": {
+      "citation_validity_rate": 0.96,
+      "sha256_match_rate": 0.96
+    },
+    "security": {
+      "critical_findings": 0,
+      "high_findings": 0
+    },
+    "latency": {
+      "p95_ms": 3500.0
+    }
+  },
+  "golden_queries": [
+    {
+      "query": "What are the registration requirements for digital lending entities under the Digital Lending Act, 2024?",
+      "expected_doc": "SYN-ACT-001",
+      "min_recall_at_5": 0.8
+    },
+    {
+      "query": "What is the penalty for unauthorized lending under Section 10?",
+      "expected_doc": "SYN-ACT-001",
+      "min_recall_at_5": 0.8
+    },
+    {
+      "query": "Who is empowered to make rules under Section 18 of SYN-ACT-005?",
+      "expected_doc": "SYN-ACT-005",
+      "min_recall_at_5": 0.8
+    }
+  ]
+}

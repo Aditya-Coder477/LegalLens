@@ -1,0 +1,403 @@
+{
+  "total_cases": 15,
+  "passed": 15,
+  "pass_rate": 1.0,
+  "metrics": {
+    "overall_citation_validity_rate": 1.0,
+    "overall_sha256_match_rate": 1.0,
+    "total_citations_evaluated": 30,
+    "total_valid_citations": 30
+  },
+  "results": [
+    {
+      "run_id": "RUN-9D34D1",
+      "case_id": "CIT-EVAL-001",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 14.998674392700195,
+      "details": {
+        "citations": [
+          "SYN-ACT-001",
+          "Section 1 of SYN-ACT-001"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.502735"
+    },
+    {
+      "run_id": "RUN-11CB91",
+      "case_id": "CIT-EVAL-002",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 3.000497817993164,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-002",
+          "SYN-ACT-002"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.505735"
+    },
+    {
+      "run_id": "RUN-4E05D6",
+      "case_id": "CIT-EVAL-003",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 3.000974655151367,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-003",
+          "SYN-ACT-003"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.508736"
+    },
+    {
+      "run_id": "RUN-58AC4B",
+      "case_id": "CIT-EVAL-004",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 1.9986629486083984,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-004",
+          "SYN-ACT-004"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.510735"
+    },
+    {
+      "run_id": "RUN-EFF993",
+      "case_id": "CIT-EVAL-005",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 1.9991397857666016,
+      "details": {
+        "citations": [
+          "SYN-ACT-005",
+          "Section 1 of SYN-ACT-005"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.512734"
+    },
+    {
+      "run_id": "RUN-AE18E6",
+      "case_id": "CIT-EVAL-006",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 1.9989013671875,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-006",
+          "SYN-ACT-006"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.514733"
+    },
+    {
+      "run_id": "RUN-5FD3D6",
+      "case_id": "CIT-EVAL-007",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 3.000497817993164,
+      "details": {
+        "citations": [
+          "SYN-ACT-007",
+          "Section 1 of SYN-ACT-007"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.517734"
+    },
+    {
+      "run_id": "RUN-E955D3",
+      "case_id": "CIT-EVAL-008",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 3.001689910888672,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-008",
+          "SYN-ACT-008"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.520735"
+    },
+    {
+      "run_id": "RUN-3CEDD6",
+      "case_id": "CIT-EVAL-009",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.000093460083008,
+      "details": {
+        "citations": [
+          "SYN-ACT-009",
+          "Section 1 of SYN-ACT-009"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.522735"
+    },
+    {
+      "run_id": "RUN-F50521",
+      "case_id": "CIT-EVAL-010",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.0003318786621094,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-010",
+          "SYN-ACT-010"
+        ],
+        "verified_statuses": [
+          "SUPERSEDED_VERSION",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.525735"
+    },
+    {
+      "run_id": "RUN-2BA05A",
+      "case_id": "CIT-EVAL-011",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.000093460083008,
+      "details": {
+        "citations": [
+          "SYN-ACT-011",
+          "Section 1 of SYN-ACT-011"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.527735"
+    },
+    {
+      "run_id": "RUN-C9BBAC",
+      "case_id": "CIT-EVAL-012",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.000093460083008,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-012",
+          "SYN-ACT-012"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.529735"
+    },
+    {
+      "run_id": "RUN-ACE82F",
+      "case_id": "CIT-EVAL-013",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 3.0002593994140625,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-013",
+          "SYN-ACT-013"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.532735"
+    },
+    {
+      "run_id": "RUN-25B4F1",
+      "case_id": "CIT-EVAL-014",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.0003318786621094,
+      "details": {
+        "citations": [
+          "Section 1 of SYN-ACT-014",
+          "SYN-ACT-014"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.534735"
+    },
+    {
+      "run_id": "RUN-9DAD55",
+      "case_id": "CIT-EVAL-015",
+      "category": "citations",
+      "status": "PASS",
+      "metrics": {
+        "citation_validity_rate": 1.0,
+        "sha256_match_rate": 1.0,
+        "citations_evaluated": 2,
+        "valid_citations": 2
+      },
+      "failures": [],
+      "latency_ms": 2.9997825622558594,
+      "details": {
+        "citations": [
+          "SYN-ACT-015",
+          "Section 1 of SYN-ACT-015"
+        ],
+        "verified_statuses": [
+          "VERIFIED",
+          "VERIFIED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:48.537735"
+    }
+  ]
+}

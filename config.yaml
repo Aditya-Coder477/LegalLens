@@ -1,0 +1,218 @@
+# ══════════════════════════════════════════════════════════════════
+# LegalLens — Pipeline Configuration
+# ══════════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────
+# Global HTTP / collection settings
+# ──────────────────────────────────────────────
+collection:
+  # Seconds to wait between requests (per domain)
+  request_delay_seconds: 2.5
+  # Extra random jitter added to delay: actual delay = delay + random(0, jitter)
+  request_jitter_seconds: 1.0
+  # Maximum retry attempts on transient failures
+  max_retries: 3
+  # Exponential backoff multiplier: wait = backoff_factor ^ attempt
+  backoff_factor: 2.0
+  # HTTP request timeout in seconds
+  timeout_seconds: 45
+  # Max simultaneous connections per domain (1 for india_code WAF; 2 for others)
+  max_concurrent_per_domain: 1
+  # User-Agent sent with every request (be transparent about bot identity)
+  user_agent: "LegalLens-DataPipeline/1.0 (Research; India Legal AI Platform; contact: admin@legallens.in)"
+  # Policy when robots.txt cannot be retrieved (e.g. SSL/timeout): permissive or conservative
+  robots_unknown_policy: "permissive"
+
+# ──────────────────────────────────────────────
+# Source adapters
+# ──────────────────────────────────────────────
+sources:
+
+  india_code:
+    enabled: true
+    base_url: "https://www.indiacode.nic.in"
+    browse_rpp: 100                # results per browse page (max ~100)
+    year_from: null                # null = no lower bound
+    year_to: null                  # null = current year
+    languages: ["en"]             # English-only for v1
+    # Supplementary section-level API (community, SECONDARY_COMMUNITY tier)
+    use_ecourtsindia_api: true
+    # Document types to collect from subordinate legislation tabs
+    doc_types:
+      - acts
+      - rules
+      - regulations
+      - notifications
+      - orders
+      - ordinances
+      - circulars
+    # Robots.txt: /browse* and /bitstream/* are allowed; /discover, /statistics are disallowed
+    allowed_paths:
+      - "/browse"
+      - "/handle"
+      - "/bitstream"
+    disallowed_paths:
+      - "/discover"
+      - "/search-filter"
+      - "/login"
+      - "/register"
+      - "/statistics"
+
+  india_code_api:
+    enabled: true
+    base_url: "https://indiacode.ecourtsindia.com/api"
+    source_authority: "SECONDARY_COMMUNITY"
+
+  data_gov:
+    enabled: true
+    base_url: "https://api.data.gov.in"
+    # Daily API call limit (free tier). Counter is persisted to logs/.
+    daily_call_limit: 950          # conservative; actual limit is 1000
+    # Topics to search for legal/judiciary datasets
+    topics:
+      - judiciary
+      - courts
+      - legal services
+      - justice
+      - labour
+      - consumer affairs
+      - police
+      - crime
+      - legal aid
+      - lok adalat
+      - government services
+      - law and justice
+      - criminal justice
+      - prison
+      - tele-law
+      - nyaya
+
+  ecourts:
+    enabled: false
+    manual_import_only: true
+    # No HTTP requests will be made to services.ecourts.gov.in
+    # Authorized alternatives for manual import:
+    alternatives:
+      - name: "DevDataLab / AWS Open Data — Indian District Courts 2010-2018"
+        url: "https://registry.opendata.aws/devdatalab-india-courts/"
+      - name: "OpenNyAI Corpus"
+        url: "https://huggingface.co/datasets/opennyaiorg"
+
+  supreme_court:
+    enabled: true
+    base_url: "https://www.sci.gov.in"
+    static_docs_only: true        # Never touch CAPTCHA-gated search forms
+    year_from: 2015
+    year_to: null                  # null = current year
+    # CAPTCHA-free static paths only
+    allowed_paths:
+      - "/pdf/"
+      - "/wp-content/uploads/"
+    # These paths require CAPTCHA — do NOT crawl
+    blocked_paths:
+      - "main.sci.gov.in"
+      - "scr.sci.gov.in"
+    index_paths:
+      - "/rules/"
+
+  nalsa:
+    enabled: true
+    base_url: "https://nalsa.gov.in"
+    index_paths:
+      - "/notifications/"
+      - "/statistics/"
+
+  legislative_dept:
+    enabled: true
+    base_url: "https://legislative.gov.in"
+    index_paths:
+      - "/constitution-of-india/"
+      - "/central-acts/"
+      - "/ordinances/"
+      - "/amendment-acts/"
+
+  meity:
+    enabled: true
+    base_url: "https://www.meity.gov.in"
+    index_paths:
+      - "/content/acts-rules"
+      - "/content/notifications"
+      - "/content/circulars"
+      - "/content/policies"
+      - "/content/guidelines"
+    # High-priority documents to specifically target
+    priority_docs:
+      - "IT Act 2000"
+      - "IT Amendment Act 2008"
+      - "IT Rules 2021"
+      - "DPDPA 2023"
+      - "CERT-In Directions"
+      - "Digital Personal Data Protection Rules 2025"
+
+# ──────────────────────────────────────────────
+# Source authority tiers
+# ──────────────────────────────────────────────
+source_authority:
+  india_code: PRIMARY_OFFICIAL
+  india_code_api: SECONDARY_COMMUNITY
+  data_gov: OFFICIAL_GOVERNMENT
+  ecourts: OFFICIAL_COURT
+  supreme_court: OFFICIAL_COURT
+  nalsa: OFFICIAL_LEGAL_AID
+  legislative_dept: PRIMARY_OFFICIAL
+  meity: OFFICIAL_GOVERNMENT
+
+# ──────────────────────────────────────────────
+# OCR
+# ──────────────────────────────────────────────
+ocr:
+  # inline: OCR runs page-by-page during ingestion
+  # offline: OCR deferred; set to false then run --ocr pass later
+  mode: inline
+  # If avg chars per page < this threshold → page is treated as scanned
+  min_chars_per_page: 100
+  # Tesseract language (eng for English)
+  tesseract_lang: "eng"
+  # Maximum DPI for pdf2image conversion (higher = better quality but slower)
+  dpi: 300
+
+# ──────────────────────────────────────────────
+# Legal domain classification
+# ──────────────────────────────────────────────
+classification:
+  keyword_classifier_enabled: true
+  # LLM classifier is opt-in: enable with --enable-llm CLI flag
+  llm_classifier_enabled: false
+  # If keyword confidence < this, mark as ambiguous (or route to LLM if enabled)
+  llm_confidence_threshold: 0.55
+  # Minimum confidence to accept any classification (below this → "unclassified")
+  min_confidence: 0.25
+
+# ──────────────────────────────────────────────
+# Deduplication
+# ──────────────────────────────────────────────
+dedup:
+  url_dedup: true
+  sha256_dedup: true
+  title_year_dedup: true
+  # Levenshtein ratio threshold for title similarity (0.0–1.0)
+  similarity_threshold: 0.92
+
+# ──────────────────────────────────────────────
+# Storage paths
+# ──────────────────────────────────────────────
+storage:
+  raw_dir: "legal-data/raw"
+  processed_dir: "legal-data/processed"
+  datasets_dir: "legal-data/datasets"
+  logs_dir: "legal-data/logs"
+  evaluation_dir: "legal-data/evaluation"
+
+# ──────────────────────────────────────────────
+# Language settings (v1 = English only)
+# ──────────────────────────────────────────────
+language:
+  default: "en"
+  supported: ["en"]
+  # Future multilingual support (v2+):
+  # supported: ["en", "hi", "gu", "mr", "ta", "te", "bn", "kn"]

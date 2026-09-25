@@ -1,0 +1,359 @@
+{
+  "total_cases": 15,
+  "passed": 15,
+  "pass_rate": 1.0,
+  "metrics": {
+    "claim_support_rate": 1.0,
+    "partial_support_rate": 0.0,
+    "unsupported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "total_claims": 15
+  },
+  "results": [
+    {
+      "run_id": "RUN-ED210A",
+      "case_id": "GRD-EVAL-001",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 649.221658706665,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:17.082375"
+    },
+    {
+      "run_id": "RUN-7BB7F9",
+      "case_id": "GRD-EVAL-002",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 632.967472076416,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:17.715343"
+    },
+    {
+      "run_id": "RUN-6943D6",
+      "case_id": "GRD-EVAL-003",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 607.7828407287598,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:18.323125"
+    },
+    {
+      "run_id": "RUN-643887",
+      "case_id": "GRD-EVAL-004",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 565.4251575469971,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:18.888550"
+    },
+    {
+      "run_id": "RUN-0ADB18",
+      "case_id": "GRD-EVAL-005",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 595.0756072998047,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:19.483626"
+    },
+    {
+      "run_id": "RUN-5FE46A",
+      "case_id": "GRD-EVAL-006",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 571.800708770752,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:20.055427"
+    },
+    {
+      "run_id": "RUN-EDDB81",
+      "case_id": "GRD-EVAL-007",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 564.7039413452148,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:20.620131"
+    },
+    {
+      "run_id": "RUN-32DE09",
+      "case_id": "GRD-EVAL-008",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 566.8857097625732,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:21.187016"
+    },
+    {
+      "run_id": "RUN-CB46AF",
+      "case_id": "GRD-EVAL-009",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 589.0243053436279,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:21.776041"
+    },
+    {
+      "run_id": "RUN-AFB26B",
+      "case_id": "GRD-EVAL-010",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 565.1307106018066,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:22.341171"
+    },
+    {
+      "run_id": "RUN-EDC655",
+      "case_id": "GRD-EVAL-011",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 564.9261474609375,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:22.906098"
+    },
+    {
+      "run_id": "RUN-9C34FA",
+      "case_id": "GRD-EVAL-012",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 563.3487701416016,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:23.469447"
+    },
+    {
+      "run_id": "RUN-AC68E3",
+      "case_id": "GRD-EVAL-013",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 597.3849296569824,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:24.066831"
+    },
+    {
+      "run_id": "RUN-D3131E",
+      "case_id": "GRD-EVAL-014",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 605.5667400360107,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:24.672398"
+    },
+    {
+      "run_id": "RUN-E7B865",
+      "case_id": "GRD-EVAL-015",
+      "category": "grounding",
+      "status": "PASS",
+      "metrics": {
+        "claim_support_rate": 1.0,
+        "partial_support_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "contradiction_rate": 0.0,
+        "total_claims": 1
+      },
+      "failures": [],
+      "latency_ms": 578.737735748291,
+      "details": {
+        "claims_evaluated": 1,
+        "entailment_statuses": [
+          "ENTAILED"
+        ]
+      },
+      "model_metadata": {},
+      "timestamp": "2026-09-25T20:08:25.251136"
+    }
+  ]
+}
