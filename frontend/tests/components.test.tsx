@@ -120,4 +120,29 @@ describe('LegalLens Frontend Core Components', () => {
       expect(handleHandoff).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('ThemeToggle', () => {
+    it('toggles dark and light mode on click', async () => {
+      const { ThemeToggle } = await import('../components/theme/ThemeToggle');
+      const { ThemeProvider } = await import('../lib/context/ThemeContext');
+
+      render(
+        <ThemeProvider>
+          <ThemeToggle />
+        </ThemeProvider>
+      );
+
+      const toggleBtn = screen.getByRole('button');
+      expect(toggleBtn).toBeInTheDocument();
+      expect(toggleBtn).toHaveAttribute('title', 'Switch to dark mode');
+
+      fireEvent.click(toggleBtn);
+      expect(document.documentElement.classList.contains('dark')).toBe(true);
+      expect(toggleBtn).toHaveAttribute('title', 'Switch to light mode');
+
+      fireEvent.click(toggleBtn);
+      expect(document.documentElement.classList.contains('dark')).toBe(false);
+      expect(toggleBtn).toHaveAttribute('title', 'Switch to dark mode');
+    });
+  });
 });

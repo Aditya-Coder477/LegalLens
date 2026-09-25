@@ -42,16 +42,16 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-200 bg-white flex flex-col justify-between h-screen sticky top-0">
+    <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between h-screen sticky top-0 transition-colors">
       <div>
         {/* Brand */}
-        <div className="h-16 border-b border-slate-200 px-6 flex items-center gap-3">
+        <div className="h-16 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-xs">
             LL
           </div>
           <div>
-            <h1 className="font-bold text-sm text-slate-900 tracking-tight">LegalLens</h1>
-            <p className="text-[10px] text-slate-500 uppercase tracking-widest font-medium">
+            <h1 className="font-bold text-sm text-slate-900 dark:text-slate-100 tracking-tight">LegalLens</h1>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-medium">
               Evidence-First AI
             </p>
           </div>
@@ -61,7 +61,7 @@ export const Sidebar: React.FC = () => {
         <div className="p-4 space-y-6 overflow-y-auto">
           {navGroups.map((group) => (
             <div key={group.title}>
-              <h2 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 mb-2">
+              <h2 className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 mb-2">
                 {group.title}
               </h2>
               <nav className="space-y-1">
@@ -80,11 +80,11 @@ export const Sidebar: React.FC = () => {
                       className={cn(
                         'flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition',
                         isActive
-                          ? 'bg-blue-50 text-blue-700 font-semibold'
-                          : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                          ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-400 font-semibold'
+                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-200'
                       )}
                     >
-                      <Icon className={cn('w-4 h-4', isActive ? 'text-blue-600' : 'text-slate-400')} />
+                      <Icon className={cn('w-4 h-4', isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500')} />
                       <span>{item.name}</span>
                     </Link>
                   );
