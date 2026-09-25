@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: legallens-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DB_HOST=postgres-pgvector
+      - DB_PORT=5432
+      - DB_USER=legallens_user
+      - DB_PASSWORD=legallens_password
+      - DB_NAME=legallens_kb
+    depends_on:
+      postgres-pgvector:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+    container_name: legallens-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+  postgres-pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: legallens-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: legallens_user
+      POSTGRES_PASSWORD: legallens_password
+      POSTGRES_DB: legallens_kb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U legallens_user -d legallens_kb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgvector_data:
+    driver: local

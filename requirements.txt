@@ -34,6 +34,12 @@ pydantic-settings>=2.2.0
 python-dotenv>=1.0.1
 PyYAML>=6.0.1
 
+# API & Web Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+pypdf>=4.0.0
+
 # CLI & Progress
 tqdm>=4.66.4
 rich>=13.7.1
