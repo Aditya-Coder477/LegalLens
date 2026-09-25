@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
+  Home,
   LayoutDashboard,
   Files,
   MessageSquareText,
@@ -23,6 +24,7 @@ export const Sidebar: React.FC = () => {
     {
       title: 'Workspace',
       items: [
+        { name: 'Overview', href: '/', icon: Home },
         { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
         { name: 'Documents', href: '/documents', icon: Files },
         { name: 'Ask LegalLens', href: '/ask', icon: MessageSquareText },
@@ -45,16 +47,20 @@ export const Sidebar: React.FC = () => {
     <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between h-screen sticky top-0 transition-colors">
       <div>
         {/* Brand */}
-        <div className="h-16 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-xs">
-            LL
-          </div>
-          <div>
-            <h1 className="font-bold text-sm text-slate-900 dark:text-slate-100 tracking-tight">LegalLens</h1>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-medium">
-              Evidence-First AI
-            </p>
-          </div>
+        <div className="h-16 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 group-hover:bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-xs transition">
+              LL
+            </div>
+            <div>
+              <h1 className="font-bold text-sm text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight transition">
+                LegalLens
+              </h1>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-medium">
+                Evidence-First AI
+              </p>
+            </div>
+          </Link>
         </div>
 
         {/* Nav Links */}
@@ -68,7 +74,8 @@ export const Sidebar: React.FC = () => {
                 {group.items.map((item) => {
                   const isActive =
                     pathname === item.href ||
-                    (item.href !== '/dashboard' &&
+                    (item.href !== '/' &&
+                      item.href !== '/dashboard' &&
                       pathname?.startsWith(item.href) &&
                       item.href !== '/documents/SYN-CONT-001/summary');
                   const Icon = item.icon;
