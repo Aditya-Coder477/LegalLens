@@ -78,56 +78,66 @@ export default function CompareDocumentsPage() {
               <span className="w-5 h-5 rounded-md bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">
                 A
               </span>
-              <h2 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              <h2 id="heading-doc-a" className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                 Baseline / Version 1
               </h2>
             </div>
             <button
+              type="button"
               onClick={() => setDocA(SAMPLE_A)}
-              className="text-[11px] text-blue-600 hover:text-blue-800 font-medium"
+              className="text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded p-1"
             >
               Reset Sample
             </button>
           </div>
+          <label htmlFor="compare-doc-a" className="sr-only">
+            Baseline Contract Text or Version 1
+          </label>
           <textarea
+            id="compare-doc-a"
             value={docA}
             onChange={(e) => setDocA(e.target.value)}
             rows={10}
-            className="w-full text-xs font-mono p-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-slate-800 transition"
+            className="w-full text-xs font-mono p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:bg-white dark:focus:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 text-slate-800 dark:text-slate-200 transition"
             placeholder="Paste baseline contract text or clause..."
           />
-          <div className="flex items-center justify-between text-[11px] text-slate-400">
+          <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>{docA.length} characters</span>
             <span>Original Version</span>
           </div>
         </div>
 
         {/* Document B */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs space-y-3">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs space-y-3 transition-colors">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-md bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center">
+              <span className="w-5 h-5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-bold text-xs flex items-center justify-center">
                 B
               </span>
-              <h2 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              <h2 id="heading-doc-b" className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                 Amended / Version 2
               </h2>
             </div>
             <button
+              type="button"
               onClick={() => setDocB(SAMPLE_B)}
-              className="text-[11px] text-blue-600 hover:text-blue-800 font-medium"
+              className="text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded p-1"
             >
               Reset Sample
             </button>
           </div>
+          <label htmlFor="compare-doc-b" className="sr-only">
+            Amended Contract Text or Version 2
+          </label>
           <textarea
+            id="compare-doc-b"
             value={docB}
             onChange={(e) => setDocB(e.target.value)}
             rows={10}
-            className="w-full text-xs font-mono p-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-slate-800 transition"
+            className="w-full text-xs font-mono p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:bg-white dark:focus:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 text-slate-800 dark:text-slate-200 transition"
             placeholder="Paste updated draft or counterparty revisions..."
           />
-          <div className="flex items-center justify-between text-[11px] text-slate-400">
+          <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>{docB.length} characters</span>
             <span>Modified Version</span>
           </div>

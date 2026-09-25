@@ -106,27 +106,33 @@ export default function SourcesPage() {
       </div>
 
       {/* Controls */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-3 shadow-xs flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-xs flex flex-col sm:flex-row gap-3 items-center justify-between transition-colors">
         <div className="relative flex-1 w-full">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <label htmlFor="source-search-input" className="sr-only">
+            Search statutes, document ID, or jurisdiction
+          </label>
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
           <input
+            id="source-search-input"
             type="text"
             placeholder="Search statutes, document ID, jurisdiction..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-slate-800"
+            className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           />
         </div>
 
-        <div className="flex items-center gap-1.5 w-full sm:w-auto">
+        <div className="flex items-center gap-1.5 w-full sm:w-auto" role="group" aria-label="Filter sources by authority">
           {['ALL', 'OFFICIAL', 'SYNTHETIC'].map((auth) => (
             <button
               key={auth}
+              type="button"
               onClick={() => setAuthorityFilter(auth)}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
+              aria-pressed={authorityFilter === auth}
+              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 ${
                 authorityFilter === auth
-                  ? 'bg-slate-900 text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-slate-900 dark:bg-blue-600 text-white shadow-xs'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               {auth === 'ALL' ? 'All Sources' : auth === 'OFFICIAL' ? 'Official Legal' : 'Reference Corpus'}
@@ -136,30 +142,33 @@ export default function SourcesPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-slate-200 rounded-2xl shadow-xs overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xs overflow-hidden transition-colors">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
+            <caption className="sr-only">
+              Knowledge base sources and statutory authorities directory
+            </caption>
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider text-[10px]">
-                <th className="py-3 px-4">Authority & Title</th>
-                <th className="py-3 px-4">Source ID</th>
-                <th className="py-3 px-4">Document Type</th>
-                <th className="py-3 px-4">Authority Class</th>
-                <th className="py-3 px-4">Chunks</th>
-                <th className="py-3 px-4">Disclaimer Note</th>
+              <tr className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-semibold uppercase tracking-wider text-xs">
+                <th scope="col" className="py-3 px-4">Authority & Title</th>
+                <th scope="col" className="py-3 px-4">Source ID</th>
+                <th scope="col" className="py-3 px-4">Document Type</th>
+                <th scope="col" className="py-3 px-4">Authority Class</th>
+                <th scope="col" className="py-3 px-4">Chunks</th>
+                <th scope="col" className="py-3 px-4">Disclaimer Note</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium text-slate-700 dark:text-slate-300">
               {filtered.map((s) => (
-                <tr key={s.source_id} className="hover:bg-slate-50/70 transition">
-                  <td className="py-3.5 px-4">
-                    <div className="font-bold text-slate-900">{s.source_name}</div>
-                    <div className="text-[11px] text-slate-400 mt-0.5">{s.source_authority}</div>
-                  </td>
-                  <td className="py-3.5 px-4 font-mono text-[11px] text-slate-600">
+                <tr key={s.source_id} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition">
+                  <th scope="row" className="py-3.5 px-4 text-left font-normal">
+                    <div className="font-bold text-slate-900 dark:text-slate-100">{s.source_name}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{s.source_authority}</div>
+                  </th>
+                  <td className="py-3.5 px-4 font-mono text-xs text-slate-600 dark:text-slate-400">
                     {s.source_id}
                   </td>
-                  <td className="py-3.5 px-4 text-slate-600">
+                  <td className="py-3.5 px-4 text-slate-600 dark:text-slate-400">
                     {s.document_type}
                   </td>
                   <td className="py-3.5 px-4">
@@ -168,10 +177,10 @@ export default function SourcesPage() {
                       synthetic={s.synthetic}
                     />
                   </td>
-                  <td className="py-3.5 px-4 text-slate-700 font-mono">
+                  <td className="py-3.5 px-4 text-slate-700 dark:text-slate-300 font-mono">
                     {s.total_chunks}
                   </td>
-                  <td className="py-3.5 px-4 text-slate-500 text-[11px] max-w-xs truncate">
+                  <td className="py-3.5 px-4 text-slate-500 dark:text-slate-400 text-xs max-w-xs truncate">
                     {s.disclaimer || 'Official statutory authority'}
                   </td>
                 </tr>

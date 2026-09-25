@@ -75,8 +75,8 @@ def main():
         or args.jailbreak
         or args.secrets
         or args.pii
-        or args.tenant-isolation
-        or args.file-security
+        or args.tenant_isolation
+        or args.file_security
         or args.provenance
     )
 
@@ -94,9 +94,9 @@ def main():
         target_cats.append("secret_leakage")
     if run_all or args.pii:
         target_cats.append("pii_leakage")
-    if run_all or args.tenant-isolation:
+    if run_all or args.tenant_isolation:
         target_cats.append("cross_tenant")
-    if run_all or args.file-security:
+    if run_all or args.file_security:
         target_cats.append("malformed_inputs")
 
     print("=" * 70)

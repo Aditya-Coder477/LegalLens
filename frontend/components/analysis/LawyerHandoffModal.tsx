@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Copy, Check, Printer, AlertCircle } from 'lucide-react';
 import { AIResponse, DocumentDetail } from '../../lib/types';
 
@@ -16,6 +18,50 @@ export const LawyerHandoffModal: React.FC<LawyerHandoffModalProps> = ({
   document,
 }) => {
   const [copied, setCopied] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<Element | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      triggerRef.current = window.document.activeElement;
+      // Focus modal on open
+      setTimeout(() => {
+        const closeBtn = modalRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close dialog"]');
+        closeBtn?.focus();
+      }, 50);
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          onClose();
+        } else if (e.key === 'Tab' && modalRef.current) {
+          // Trap focus inside modal
+          const focusableEls = modalRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableEls.length > 0) {
+            const first = focusableEls[0];
+            const last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey && window.document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && window.document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        // Return focus to trigger element on close
+        if (triggerRef.current instanceof HTMLElement) {
+          triggerRef.current.focus();
+        }
+      };
+    }
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -53,57 +99,92 @@ This dossier was automatically compiled by the LegalLens Legal Intelligence Assi
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4 animate-in fade-in duration-150">
-      <div className="bg-white rounded-xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden flex flex-col max-h-[85vh]">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-xs p-4"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lawyer-handoff-title"
+        aria-describedby="lawyer-handoff-desc"
+        className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full overflow-hidden flex flex-col max-h-[85vh] transition-colors"
+      >
         {/* Header */}
-        <div className="bg-slate-50 border-b border-slate-200 px-5 py-4 flex items-center justify-between">
+        <div className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 px-5 py-4 flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-slate-900">Lawyer Discussion Dossier</h3>
-            <p className="text-xs text-slate-500">Structured legal matter intake summary</p>
+            <h2 id="lawyer-handoff-title" className="text-sm font-bold text-slate-900 dark:text-slate-100">
+              Prepare Lawyer Intake Dossier
+            </h2>
+            <p id="lawyer-handoff-desc" className="text-xs text-slate-500 dark:text-slate-400">
+              Structured matter summary with verifiable statutory citations for advocate review.
+            </p>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 p-1 rounded-md transition"
+            aria-label="Close dialog"
+            className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
-        {/* Notice */}
-        <div className="bg-amber-50 border-b border-amber-200 px-5 py-2.5 flex items-start gap-2 text-xs text-amber-900">
-          <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+        {/* Advisory Warning */}
+        <div className="bg-amber-50 dark:bg-amber-950/40 border-b border-amber-200 dark:border-amber-800 px-5 py-2.5 flex items-center gap-2 text-xs text-amber-800 dark:text-amber-300">
+          <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
           <span>
-            <strong>Attorney Review Only:</strong> AI-generated summary intended to prepare you for discussion with a certified advocate.
+            Intake preparation aid only. Legal information, not a substitute for professional legal counsel.
           </span>
         </div>
 
-        {/* Content */}
-        <div className="p-6 overflow-y-auto flex-1 font-mono text-xs bg-slate-50/50 leading-relaxed text-slate-800 whitespace-pre-wrap select-all">
-          {dossierText}
+        {/* Dossier Code Text Area */}
+        <div className="p-5 flex-1 overflow-y-auto">
+          <label htmlFor="dossier-preview-text" className="sr-only">
+            Compiled Lawyer Dossier Text
+          </label>
+          <textarea
+            id="dossier-preview-text"
+            readOnly
+            value={dossierText}
+            className="w-full h-80 font-mono text-xs p-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-800 dark:text-slate-200 resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+          />
         </div>
 
-        {/* Footer */}
-        <div className="bg-slate-50 border-t border-slate-200 px-5 py-3.5 flex items-center justify-between">
-          <button
-            onClick={onClose}
-            className="text-xs font-medium text-slate-600 hover:text-slate-900 transition"
-          >
-            Close
-          </button>
+        {/* Actions Footer */}
+        <div className="bg-slate-50 dark:bg-slate-800/60 border-t border-slate-200 dark:border-slate-800 px-5 py-3 flex items-center justify-between">
+          <span className="text-xs text-slate-500 dark:text-slate-400">Ready to export or print</span>
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 text-xs font-medium bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-lg transition"
+              aria-label="Print lawyer dossier"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
             >
-              <Printer className="w-3.5 h-3.5" />
+              <Printer className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Print</span>
             </button>
+
             <button
+              type="button"
               onClick={handleCopy}
-              className="inline-flex items-center gap-1.5 text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-lg shadow-xs transition"
+              aria-label={copied ? 'Dossier copied to clipboard' : 'Copy dossier to clipboard'}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-xs font-semibold text-white shadow-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             >
-              {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? 'Copied' : 'Copy Dossier'}</span>
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Copy Dossier</span>
+                </>
+              )}
             </button>
           </div>
         </div>
