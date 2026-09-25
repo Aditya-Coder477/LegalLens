@@ -22,8 +22,13 @@ import { SourceBadge } from '../../components/citations/SourceBadge';
 import { CitationBadge } from '../../components/citations/CitationBadge';
 import { SafetyBanner } from '../../components/safety/SafetyBanner';
 import { mockSampleAnswer, mockSampleDocument } from '../../fixtures/mockData';
+import dynamic from 'next/dynamic';
 import { AnswerView } from '../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 interface DemoTouchpoint {
   id: number;

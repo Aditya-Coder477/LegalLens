@@ -4,10 +4,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, Sparkles, Loader2, ShieldAlert, CheckCircle2, AlertTriangle, BookOpen } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { LegalLensAPI } from '../../../../lib/api/client';
 import { AIResponse } from '../../../../lib/types';
 import { AnswerView } from '../../../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 const PRESET_CLAUSES = [
   {

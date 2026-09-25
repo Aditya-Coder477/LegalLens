@@ -25,56 +25,119 @@ import {
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000';
 const IS_MOCK_MODE = process.env.NEXT_PUBLIC_API_MODE === 'mock';
 
-async function safeFetch<T>(endpoint: string, options?: RequestInit, fallback?: T): Promise<T> {
+// In-memory cache for idempotent read queries to eliminate duplicate network calls
+interface CacheEntry<T> {
+  data: T;
+  timestamp: number;
+}
+const requestCache = new Map<string, CacheEntry<any>>();
+const pendingRequests = new Map<string, Promise<any>>();
+const CACHE_TTL_MS = 30000; // 30 seconds
+
+async function safeFetch<T>(
+  endpoint: string,
+  options?: RequestInit,
+  fallback?: T,
+  forceRefresh: boolean = false
+): Promise<T> {
   if (IS_MOCK_MODE && fallback !== undefined) {
     return fallback;
   }
 
-  try {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(options?.headers || {}),
-      },
-      ...options,
-    });
+  const isGet = !options?.method || options.method.toUpperCase() === 'GET';
+  const cacheKey = `${endpoint}`;
 
-    if (!res.ok) {
-      throw new Error(`API error ${res.status}: ${res.statusText}`);
+  // 1. Check in-memory cache for GET requests
+  if (isGet && !forceRefresh) {
+    const cached = requestCache.get(cacheKey);
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+      return cached.data as T;
     }
-
-    return await res.json();
-  } catch (err) {
-    if (fallback !== undefined) {
-      console.warn(`[LegalLens API Client] Request failed for ${endpoint}, using fallback.`, err);
-      return fallback;
-    }
-    throw err;
   }
+
+  // 2. Request deduplication for simultaneous in-flight GET requests
+  if (isGet && pendingRequests.has(cacheKey) && !forceRefresh) {
+    return pendingRequests.get(cacheKey) as Promise<T>;
+  }
+
+  const fetchPromise = (async () => {
+    try {
+      const res = await fetch(`${BASE_URL}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          ...(options?.headers || {}),
+        },
+        ...options,
+      });
+
+      if (!res.ok) {
+        throw new Error(`API error ${res.status}: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+
+      // Store successful GET responses in cache
+      if (isGet) {
+        requestCache.set(cacheKey, { data, timestamp: Date.now() });
+      }
+
+      return data as T;
+    } catch (err) {
+      if (fallback !== undefined) {
+        console.warn(`[LegalLens API Client] Request failed for ${endpoint}, using fallback.`, err);
+        return fallback;
+      }
+      throw err;
+    } finally {
+      if (isGet) {
+        pendingRequests.delete(cacheKey);
+      }
+    }
+  })();
+
+  if (isGet) {
+    pendingRequests.set(cacheKey, fetchPromise);
+  }
+
+  return fetchPromise;
 }
 
 export const LegalLensAPI = {
-  async getDashboard(): Promise<DashboardStats> {
-    return safeFetch<DashboardStats>('/api/v1/dashboard', { method: 'GET' }, mockDashboardStats);
+  invalidateCache(pattern?: string) {
+    if (!pattern) {
+      requestCache.clear();
+      return;
+    }
+    requestCache.forEach((_, key) => {
+      if (key.includes(pattern)) {
+        requestCache.delete(key);
+      }
+    });
   },
 
-  async getDocuments(): Promise<DocumentSummary[]> {
-    return safeFetch<DocumentSummary[]>('/api/v1/documents', { method: 'GET' }, mockDashboardStats.recent_documents);
+  async getDashboard(forceRefresh = false): Promise<DashboardStats> {
+    return safeFetch<DashboardStats>('/api/v1/dashboard', { method: 'GET' }, mockDashboardStats, forceRefresh);
   },
 
-  async getDocument(documentId: string): Promise<DocumentDetail> {
+  async getDocuments(forceRefresh = false): Promise<DocumentSummary[]> {
+    return safeFetch<DocumentSummary[]>('/api/v1/documents', { method: 'GET' }, mockDashboardStats.recent_documents, forceRefresh);
+  },
+
+  async getDocument(documentId: string, forceRefresh = false): Promise<DocumentDetail> {
     return safeFetch<DocumentDetail>(
       `/api/v1/documents/${documentId}`,
       { method: 'GET' },
-      { ...mockSampleDocument, document_id: documentId }
+      { ...mockSampleDocument, document_id: documentId },
+      forceRefresh
     );
   },
 
-  async getDocumentChunks(documentId: string): Promise<Chunk[]> {
-    return safeFetch<Chunk[]>(`/api/v1/documents/${documentId}/chunks`, { method: 'GET' }, []);
+  async getDocumentChunks(documentId: string, forceRefresh = false): Promise<Chunk[]> {
+    return safeFetch<Chunk[]>(`/api/v1/documents/${documentId}/chunks`, { method: 'GET' }, [], forceRefresh);
   },
 
   async uploadFile(file: File, title?: string, documentType: string = 'Contract'): Promise<DocumentSummary> {
+    this.invalidateCache();
     const formData = new FormData();
     formData.append('file', file);
     if (title) formData.append('title', title);
@@ -103,6 +166,7 @@ export const LegalLensAPI = {
   },
 
   async uploadDocument(title: string, documentType: string, textContent: string): Promise<DocumentSummary> {
+    this.invalidateCache();
     return safeFetch<DocumentSummary>(
       '/api/v1/documents/upload-json',
       {
@@ -241,11 +305,11 @@ export const LegalLensAPI = {
     );
   },
 
-  async getSources(): Promise<SourceOverview[]> {
-    return safeFetch<SourceOverview[]>('/api/v1/sources', { method: 'GET' }, mockSources);
+  async getSources(forceRefresh = false): Promise<SourceOverview[]> {
+    return safeFetch<SourceOverview[]>('/api/v1/sources', { method: 'GET' }, mockSources, forceRefresh);
   },
 
-  async getActivity(): Promise<ActivityEvent[]> {
-    return safeFetch<ActivityEvent[]>('/api/v1/activity', { method: 'GET' }, mockDashboardStats.recent_activity);
+  async getActivity(forceRefresh = false): Promise<ActivityEvent[]> {
+    return safeFetch<ActivityEvent[]>('/api/v1/activity', { method: 'GET' }, mockDashboardStats.recent_activity, forceRefresh);
   },
 };

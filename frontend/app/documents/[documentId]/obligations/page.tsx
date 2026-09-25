@@ -4,10 +4,15 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, CheckSquare, Sparkles, Loader2, RefreshCw, UserCheck, Shield } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { LegalLensAPI } from '../../../../lib/api/client';
 import { AIResponse, DocumentDetail } from '../../../../lib/types';
 import { AnswerView } from '../../../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 export default function DocumentObligationsPage() {
   const params = useParams();

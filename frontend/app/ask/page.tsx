@@ -2,11 +2,16 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { Search, Loader2, Sparkles, AlertCircle, ArrowLeft, RefreshCw } from 'lucide-react';
 import { LegalLensAPI } from '../../lib/api/client';
 import { AIResponse } from '../../lib/types';
 import { AnswerView } from '../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 function AskPageContent() {
   const searchParams = useSearchParams();

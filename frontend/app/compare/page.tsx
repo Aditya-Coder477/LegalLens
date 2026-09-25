@@ -1,11 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { ArrowLeftRight, Sparkles, Loader2, FileText, CheckCircle2, AlertTriangle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { LegalLensAPI } from '../../lib/api/client';
 import { AIResponse } from '../../lib/types';
 import { AnswerView } from '../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 const SAMPLE_A = `EMPLOYMENT AGREEMENT (VERSION 1)
 Section 4: Termination

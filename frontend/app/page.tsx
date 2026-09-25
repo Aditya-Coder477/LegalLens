@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import {
@@ -18,6 +16,8 @@ import {
   GitCompare,
   Lock,
   Compass,
+  FileCheck,
+  UserCheck,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -25,32 +25,32 @@ export default function HomePage() {
     {
       num: '01',
       title: 'Upload',
-      desc: 'Add your legal contract, employment agreement, or notice in PDF or text format.',
+      desc: 'Add agreements, employment contracts, notices, or policies in PDF or text format.',
     },
     {
       num: '02',
       title: 'Understand',
-      desc: 'Receive an automated structured overview with key sections and legal hierarchy.',
+      desc: 'Get an executive summary and plain-language simplification of convoluted legalese.',
     },
     {
       num: '03',
       title: 'Ask',
-      desc: 'Interrogate specific provisions, penalties, or compliance obligations in plain language.',
+      desc: 'Ask natural-language questions about terms, notice periods, penalties, or compliance.',
     },
     {
       num: '04',
-      title: 'Analyze',
-      desc: 'Evaluate high-risk clauses, indemnities, dispute resolution forums, and milestone dates.',
+      title: 'Find Evidence',
+      desc: 'See the exact supporting section, clause, and document page backing each answer.',
     },
     {
       num: '05',
-      title: 'Verify',
-      desc: 'Inspect exact source citations, statute sections, and page references backing every statement.',
+      title: 'Analyze',
+      desc: 'Extract rights, duties, chronological deadlines, and compare versions side-by-side.',
     },
     {
       num: '06',
       title: 'Act',
-      desc: 'Export a professional lawyer intake dossier or proceed with clear contractual awareness.',
+      desc: 'Review evidence-backed next steps and generate structured briefs for licensed counsel.',
     },
   ];
 
@@ -60,23 +60,31 @@ export default function HomePage() {
       solution: 'Structured executive summaries extract core obligations without losing legal nuances.',
     },
     {
-      problem: 'Buried Termination & Risk Clauses',
-      solution: 'Automatic detection of restrictive covenants, indemnity triggers, and liability caps.',
+      problem: 'Buried Rights & Obligations',
+      solution: 'Automatic extraction categorizes who owes what duty and what rights each party holds.',
     },
     {
-      problem: 'Missed Notice Periods & Timelines',
-      solution: 'Dedicated chronological deadline matrix identifying cure periods and expiry milestones.',
+      problem: 'Missed Deadlines & Notice Periods',
+      solution: 'Chronological timeline matrix maps out cure periods, termination notices, and renewal dates.',
     },
     {
       problem: 'Confusing Legal Jargon',
-      solution: 'Plain-language simplifications contextualized against applicable Indian laws.',
+      solution: 'Plain-language translations demystify archaic legalese while preserving legal accuracy.',
+    },
+    {
+      problem: 'Comparing Agreements Manually',
+      solution: 'Side-by-side comparative redlining highlights modifications in liabilities and covenants.',
+    },
+    {
+      problem: 'Untraceable AI Hallucinations',
+      solution: 'Strict evidence grounding with SHA-256 fingerprints links answers to exact source sections.',
     },
   ];
 
   const capabilities = [
     {
       icon: Search,
-      title: 'Find the relevant provision',
+      title: 'Find relevant provisions',
       desc: 'Search statutory language and semantic concepts to locate exact relevant evidence across acts and agreements.',
       href: '/ask',
       cta: 'Search Provisions',
@@ -96,11 +104,25 @@ export default function HomePage() {
       cta: 'View Timelines',
     },
     {
+      icon: GitCompare,
+      title: 'Compare agreements & detect differences',
+      desc: 'Cross-examine two contract versions or templates to detect alterations in rights, liabilities, and notice terms.',
+      href: '/compare',
+      cta: 'Compare Documents',
+    },
+    {
       icon: FileText,
       title: 'Explain legal language clearly',
-      desc: 'Translate convoluted legalese into accessible terms without sacrificing evidence grounding.',
+      desc: 'Translate convoluted legalese into accessible terms without sacrificing statutory evidence grounding.',
       href: '/documents',
       cta: 'Browse Documents',
+    },
+    {
+      icon: UserCheck,
+      title: 'Prepare lawyer handoff briefing',
+      desc: 'Export structured briefings with highlighted citations and key questions for consultation with licensed counsel.',
+      href: '/ask',
+      cta: 'Prepare Briefing',
     },
   ];
 
@@ -191,7 +213,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {userProblems.map((item, idx) => (
             <div
               key={idx}
@@ -314,7 +336,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {capabilities.map((feat) => {
             const Icon = feat.icon;
             return (

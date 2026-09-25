@@ -5,9 +5,14 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, FileText, Sparkles, Loader2, RefreshCw } from 'lucide-react';
 import { LegalLensAPI } from '../../../../lib/api/client';
+import dynamic from 'next/dynamic';
 import { AIResponse, DocumentDetail } from '../../../../lib/types';
 import { AnswerView } from '../../../../components/analysis/AnswerView';
-import { LawyerHandoffModal } from '../../../../components/analysis/LawyerHandoffModal';
+
+const LawyerHandoffModal = dynamic(
+  () => import('../../../../components/analysis/LawyerHandoffModal').then((mod) => mod.LawyerHandoffModal),
+  { ssr: false }
+);
 
 export default function DocumentSummaryPage() {
   const params = useParams();
